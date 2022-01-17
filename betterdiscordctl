@@ -9,7 +9,7 @@ SOURCE=$(readlink -f "${BASH_SOURCE[0]}")
 DISABLE_SELF_UPGRADE=
 
 # Options
-cmd=
+cmd=com.discordapp.DiscordCanary
 verbosity=0
 d_flavors=('' canary ptb)
 d_modules=
@@ -419,9 +419,9 @@ xdg_discover_config() {
     flatpak)
       # shellcheck disable=SC2016
       # Expansion should happen inside flatpak's shell.
-      xdg_config=$("$flatpak_bin" run --command=sh com.discordapp.Discord \
+      xdg_config=$("$flatpak_bin" run --command=sh com.discordapp.DiscordCanary \
           -c $'printf -- \'%s\n\' "$XDG_CONFIG_HOME"')
-      xdg_config=${xdg_config:-$HOME/.var/app/com.discordapp.Discord/config}
+      xdg_config=${xdg_config:-$HOME/.var/app/com.discordapp.DiscordCanary/config}
       ;;
     *) die "ERROR: [xdg_discover_config] Unknown Discord install variant: $d_install" ;;
   esac
